@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrophonics | Dashboard</title>
+
+    <link rel="shortcut icon" href="assets/favicon.jpg" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/c7dad06b11.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="poppins-regular">
+    <div class="grid grid-cols-12">
+        <header id="sideBar"
+            class="w-full hidden md:block col-span-12 md:col-span-3 py-10 px-10 min min-h-screen h-full bg-blue-800 absolute z-50 md:relative">
+            <button id="sideClose"
+                class="md:hidden absolute end-5 top-5 bg-white text-blue-600 px-3 py-2 rounded hover:opacity-60"><i
+                    class="fa-solid fa-xmark"></i></button>
+            <div class="flex justify-center mb-5">
+                <img class="w-52" src="./assets/logo.png" alt="Hydrophonics Logo">
+            </div>
+            <h2 class="ms-5 text-white mb-3 font-semibold">Menu</h2>
+            <hr class="mb-10 opacity-50">
+            <ul class="flex-column space-y space-y-4 text-sm text-lg font-light">
+                <li>
+                    <a href="dashboard.html"
+                        class="inline-flex text-blue-800 items-center p-5 rounded-lg transition-all text-white bg-blue-800 hover:bg-blue-900 w-full gap-3">
+                        <i class="fa-solid fa-bottle-water"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="camera.html"
+                        class="inline-flex text-blue-800 items-center p-5 rounded-lg transition-all text-white bg-blue-800 hover:bg-blue-900 w-full gap-3">
+                        <i class="fa-solid fa-camera"></i>
+                        Camera
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="inline-flex text-blue-800 items-center p-5 rounded-lg bg-gray-50 transition-all w-full gap-3">
+                        <i class="fa-solid fa-seedling"></i>
+                        Crops
+                    </a>
+                </li>
+            </ul>
+            <div class="text-center mt-10 text-white opacity-50">
+                <i class="fa-solid fa-droplet text-2xl"></i>
+
+            </div>
+        </header>
+
+        <main class="col-span-12 md:col-span-9 bg-gray-50">
+            <nav class="p-6 bg-white border">
+                <div class="grid grid-cols-12 items-center">
+                    <div class="col-span-6 flex inline-flex gap-3 items-center">
+                        <button id="sideAppear"
+                            class="block md:hidden bg-blue-800 px-3 py-2 text-white rounded hover:bg-blue-900 transition-all"><i
+                                class="fa-solid fa-bars"></i></button>
+                        <h3 class="text-xl font-bold">Dashboard</h3>
+                    </div>
+                    <div class="col-span-6 flex items-center flex-inline justify-end gap-3 relative cursor-pointer"
+                        id="logoutBtn">
+                        <img class="w-12" src="./assets/chicken.png" alt="Profile Picture">
+                        <div class="font-bold" id="emailDisplay">
+                            -----
+                        </div>
+                        <div id="logoutContainer"
+                            class="bg-white border border-gray-300 px-3 py-2 shadow-lg absolute rounded w-48 hidden"
+                            style="bottom: -70px;">
+                            <ul class="flex-column space-y space-y-4 text-sm text-lg font-light">
+                                <li>
+                                    <button id="logout"
+                                        class="inline-flex text-blue-800 items-center p-3 rounded-lg transition-all text-white bg-blue-800 hover:bg-blue-900 w-full gap-3">
+                                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                        Logout
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="bg-gray-100 p-6 min-h-screen">
+
+                <div class="grid-cols-12">
+                    <p class="mb-6">This section explains about the information of each crops and the needed nutrients
+                        for the plant to grow healthy.</p>
+                </div>
+
+                <div class="border-b border-gray-200 dark:border-gray-700 mb-2">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-300">
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-flex items-center justify-center p-4 border-b-2 border-blue-600 text-blue-600 active rounded-t-lg group"
+                                id="lettuceBtn">
+                                <i class="fa-solid fa-seedling md:me-5"></i>
+                                <span class="hidden md:block">
+                                    Lettuce
+                                </span>
+                            </a>
+                        </li>
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 group"
+                                id="pechayBtn">
+                                <i class="fa-solid fa-seedling md:me-5"></i>
+                                <span class="hidden md:block">
+                                    Pechay
+                                </span>
+                            </a>
+                        </li>
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 group"
+                                id="mustasaBtn">
+                                <i class="fa-solid fa-seedling md:me-5"></i>
+                                <span class="hidden md:block">
+                                    Mustasa
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="text-medium text-gray-500 w-full">
+
+                    <!-- lettuce -->
+                    <div id="tab1Content">
+                        <div class="relative bg-cover h-56 flex justify-center items-center mb-8"
+                            style="background-image: url('assets/lettuce-bg.jpg');">
+                            <div class="absolute bg-black opacity-50 left-0 w-full h-full z-0"></div>
+                            <div class="text-white relative z-10 flex flex-col items-center">
+                                <h2 class="font-bold text-2xl mb-6">Lettuce</h2>
+                                <img class="w-12" src="assets/hydroponics-logo-white.png" alt="">
+                            </div>
+                        </div>
+                        <div class="lg:px-28 xl:px-52 grid gap-8">
+                            <p>Lettuce (Lactuca sativa) is a leafy vegetable that is a staple in many diets
+                                around the world, particularly popular for its use in salads, sandwiches, and wraps. It
+                                comes in a variety of types, including romaine, iceberg, butterhead, and leaf lettuce,
+                                each with unique textures and flavors. Romaine is known for its crisp, elongated leaves,
+                                while iceberg has tightly packed, crunchy heads. Butterhead varieties are soft and
+                                buttery, and leaf lettuces are loose and tender. Lettuce is not only versatile in
+                                culinary uses but also valued for its low calorie content and essential nutrients such
+                                as vitamin A, vitamin K, and folate.</p>
+                            <p>For optimal growth, lettuce requires specific environmental conditions. The ideal pH
+                                level for lettuce is between 5.5 and 6.5, which helps ensure proper nutrient uptake and
+                                plant health. Humidity should be maintained between 50% and 70% to prevent diseases and
+                                promote healthy leaf development. Temperature is also crucial, with the optimal range
+                                being 60°F to 70°F (15°C to 21°C). This cool climate helps lettuce grow steadily and
+                                reduces the risk of bolting, where the plant prematurely goes to seed, leading to a
+                                bitter taste. In hydroponic systems, it's important to keep the roots consistently moist
+                                but not waterlogged, ensuring they are adequately hydrated without being submerged.</p>
+                            <p>Nutrient solutions play a vital role in hydroponically growing lettuce. A balanced
+                                hydroponic nutrient solution with an N-P-K ratio (such as 5-10-10) is essential,
+                                providing the right mix of nitrogen, phosphorus, and potassium to support healthy
+                                growth. It's important to follow the manufacturer's instructions for mixing and
+                                concentration. Additionally, specific products like Leafy NutriSol, designed for leafy
+                                greens, should be used according to their guidelines, typically around 2-3 teaspoons per
+                                gallon of water. By maintaining the right environmental conditions and providing
+                                appropriate nutrient solutions, hydroponic growers can achieve optimal yields and
+                                healthy, flavorful lettuce.</p>
+                            <div class="shadow-lg rounded overflow-hidden">
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <caption
+                                        class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                                        Needed Nutrients
+                                        <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">This is the
+                                            lists of things that is needed to be maintained during the process of using
+                                            hydroponics to a specific plant.</p>
+                                    </caption>
+                                    <thead
+                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">
+                                                Type
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Description
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                ph Level
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                5.5 to 6.5
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Humidity
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                50% to 70%
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Temperature
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                60°F to 70°F (15°C to 21°C)
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Water Level
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Consistently moist roots
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Hydroponic Nutrients Solution
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Balanced N-P-K ratio (e.g., 5-10-10), follow product instructions
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Leafy NutriSol
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Follow specific product guidelines, usually around 2-3 teaspoons per
+                                                gallon
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pechay -->
+                    <div class="hidden" id="tab2Content">
+                        <div class="relative bg-cover h-56 flex justify-center items-center mb-8"
+                            style="background-image: url('assets/pechay-bg.jpg');">
+                            <div class="absolute bg-black opacity-50 left-0 w-full h-full z-0"></div>
+                            <div class="text-white relative z-10 flex flex-col items-center">
+                                <h2 class="font-bold text-2xl mb-6">Pechay</h2>
+                                <img class="w-12" src="assets/hydroponics-logo-white.png" alt="">
+                            </div>
+                        </div>
+                        <div class="lg:px-28 xl:px-52 grid gap-8">
+                            <p>Pechay (Brassica rapa subsp. chinensis), also known as bok choy or Chinese cabbage, is a
+                                leafy vegetable commonly used in Asian cuisine. It is a type of non-heading cabbage with
+                                dark green leaves and thick white stalks, known for its crisp texture and mild, slightly
+                                peppery flavor. Pechay is a versatile ingredient, often used in stir-fries, soups, and
+                                salads. It is highly nutritious, offering a good source of vitamins A, C, and K, as well
+                                as minerals such as calcium and iron.</p>
+                            <p>For optimal growth, pechay requires specific environmental conditions. The ideal pH level
+                                for pechay is between 6.0 and 7.0, which supports proper nutrient absorption and overall
+                                plant health. Humidity should be maintained between 50% and 70% to avoid stress and
+                                promote robust growth. The optimal temperature range for growing pechay is 60°F to 70°F
+                                (15°C to 21°C), similar to lettuce, as this cool climate helps the plant develop without
+                                the risk of bolting. In hydroponic systems, maintaining the water level is crucial; the
+                                roots should be kept consistently moist but not waterlogged to ensure they receive
+                                adequate hydration and oxygen.</p>
+                            <p>Nutrient solutions are critical for hydroponically growing pechay. A balanced hydroponic
+                                nutrient solution with an N-P-K ratio such as 8-15-36 is recommended to provide the
+                                necessary nutrients for healthy growth. It is important to follow the manufacturer's
+                                instructions for the correct concentration and mixing ratios. Additionally, using a
+                                product like Leafy NutriSol, formulated specifically for leafy vegetables, can be
+                                beneficial. Follow the product guidelines, typically using around 2-3 teaspoons per
+                                gallon of water, to ensure the plants receive optimal nutrition. By adhering to these
+                                environmental and nutritional requirements, hydroponic growers can achieve healthy and
+                                productive pechay crops.</p>
+                            <div class="shadow-lg rounded overflow-hidden">
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <caption
+                                        class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                                        Needed Nutrients
+                                        <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">This is the
+                                            lists of things that is needed to be maintained during the process of using
+                                            hydroponics to a specific plant.</p>
+                                    </caption>
+                                    <thead
+                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">
+                                                Type
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Description
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                ph Level
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                6.0 to 7.0
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Humidity
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                50% to 70%
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Temperature
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                60°F to 70°F (15°C to 21°C)
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Water Level
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Consistently moist roots
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Hydroponic Nutrients Solution
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Balanced N-P-K ratio (e.g., 8-15-36), follow product instructions
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Leafy NutriSol
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Follow specific product guidelines, usually around 2-3 teaspoons per
+                                                gallon
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mustasa -->
+                    <div class="hidden" id="tab3Content">
+                        <div class="relative bg-cover h-56 flex justify-center items-center mb-8"
+                            style="background-image: url('assets/mustasa-bg.jpeg');">
+                            <div class="absolute bg-black opacity-50 left-0 w-full h-full z-0"></div>
+                            <div class="text-white relative z-10 flex flex-col items-center">
+                                <h2 class="font-bold text-2xl mb-6">Mustasa</h2>
+                                <img class="w-12" src="assets/hydroponics-logo-white.png" alt="">
+                            </div>
+                        </div>
+                        <div class="lg:px-28 xl:px-52 grid gap-8">
+                            <p>Mustasa (Brassica juncea), also known as mustard greens, is a leafy vegetable notable for
+                                its peppery flavor and nutritional benefits. Commonly used in various cuisines, mustasa
+                                can be incorporated into salads, soups, stir-fries, and even pickled dishes. This
+                                versatile green is not only prized for its taste but also for its health benefits, as it
+                                is rich in vitamins A, C, and K, as well as minerals such as calcium and iron. Its
+                                robust flavor and nutrient profile make it a popular choice in both home gardens and
+                                commercial agriculture.</p>
+                            <p>For optimal growth, mustasa requires specific environmental conditions. The ideal pH
+                                level for mustasa ranges from 6.0 to 7.5, which ensures proper nutrient absorption and
+                                plant health. Maintaining humidity levels between 50% and 70% is crucial to prevent
+                                stress and promote vigorous growth. The optimal temperature range for mustasa is 55°F to
+                                75°F (13°C to 24°C), which supports steady growth and prevents bolting, a process where
+                                the plant prematurely goes to seed. In hydroponic systems, it is essential to keep the
+                                roots consistently moist without being waterlogged, ensuring they receive adequate
+                                hydration and oxygen.</p>
+                            <p>Nutrient solutions play a vital role in hydroponically growing mustasa. A balanced
+                                hydroponic nutrient solution with an N-P-K ratio of around 8-15-36 is recommended to
+                                provide the essential nutrients required for healthy growth. It is important to follow
+                                the manufacturer's instructions for the correct concentration and mixing ratios.
+                                Additionally, using a product like Leafy NutriSol, specifically formulated for leafy
+                                vegetables, can enhance growth. Typically, around 2-3 teaspoons per gallon of water is
+                                used to ensure the plants receive optimal nutrition. By adhering to these environmental
+                                and nutritional guidelines, hydroponic growers can achieve robust and healthy mustasa
+                                crops.</p>
+                            <div class="shadow-lg rounded overflow-hidden">
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <caption
+                                        class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                                        Needed Nutrients
+                                        <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">This is the
+                                            lists of things that is needed to be maintained during the process of using
+                                            hydroponics to a specific plant.</p>
+                                    </caption>
+                                    <thead
+                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">
+                                                Type
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Description
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                ph Level
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                6.0 to 7.5
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Humidity
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                50% to 70%
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Temperature
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                60°F to 70°F (15°C to 21°C)
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Water Level
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Consistently moist roots
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Hydroponic Nutrients Solution
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Balanced N-P-K ratio (e.g., 8-15-36), follow product instructions
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white dark:bg-gray-800">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                Leafy NutriSol
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Follow specific product guidelines, usually around 2-3 teaspoons per
+                                                gallon
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <footer class="bg-white p-5 opacity-50 text-center">
+                <p class="text-sm">Copyright © Hydrophonics SNC 2024</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#lettuceBtn').on('click', function () {
+                $(this).addClass('border-blue-600 text-blue-600 border-blue-600')
+                $(this).removeClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+                $('#pechayBtn').removeClass('border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300')
+                $('#pechayBtn').addClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+                $('#mustasaBtn').removeClass('border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300')
+                $('#mustasaBtn').addClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+
+                $('#tab1Content').removeClass('hidden')
+                $('#tab2Content').addClass('hidden')
+                $('#tab3Content').addClass('hidden')
+            })
+
+            $('#pechayBtn').on('click', function () {
+                $(this).addClass('border-blue-600 text-blue-600 border-blue-600')
+                $(this).removeClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+                $('#lettuceBtn').removeClass('border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300')
+                $('#lettuceBtn').addClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+                $('#mustasaBtn').removeClass('border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300')
+                $('#mustasaBtn').addClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+
+                $('#tab2Content').removeClass('hidden')
+                $('#tab1Content').addClass('hidden')
+                $('#tab3Content').addClass('hidden')
+            })
+
+            $('#mustasaBtn').on('click', function () {
+                $(this).addClass('border-blue-600 text-blue-600 border-blue-600')
+                $(this).removeClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+                $('#lettuceBtn').removeClass('border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300')
+                $('#lettuceBtn').addClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+                $('#pechayBtn').removeClass('border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300')
+                $('#pechayBtn').addClass('border-transparent hover:text-gray-600 hover:border-gray-300')
+
+                $('#tab3Content').removeClass('hidden')
+                $('#tab1Content').addClass('hidden')
+                $('#tab2Content').addClass('hidden')
+            })
+
+            $('#sideAppear').on('click', function () {
+                $('#sideBar').removeClass('hidden')
+            })
+
+            $('#sideClose').on('click', function () {
+                $('#sideBar').addClass('hidden')
+            })
+
+            $('#logoutBtn').on('click', function () {
+                if ($('#logoutContainer').hasClass('hidden')) {
+                    $('#logoutContainer').removeClass('hidden')
+                } else {
+                    $('#logoutContainer').addClass('hidden')
+                }
+            })
+
+            $('#logout').on('click', function(){
+                window.location.href = 'index.html'
+            })
+
+            $('#emailDisplay').text(JSON.parse(sessionStorage.getItem('user-info')))
+
+        })
+    </script>
+
+</body>
+
+</html>

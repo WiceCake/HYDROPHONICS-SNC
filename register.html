@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+
+    <link rel="shortcut icon" href="assets/favicon.jpg" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="overflow-hidden">
+    <div class="poppins-regular">
+      <div class="grid grid-cols-12">
+        <div
+          class="col-span-12 sm:col-span-5 lg:col-span-3 bg-blue-800 text-white p-10 h-screen overflow-y-auto"
+        >
+          <div class="flex justify-center mb-8">
+            <img class="w-52" src="assets/logo.png" alt="Hydrophonics" />
+          </div>
+          <h1 class="text-xl font-extralight mb-8">
+            Create an Account. Try to experience our
+            <span class="font-bold">hydroponics</span>
+          </h1>
+          <hr class="mb-8" />
+          <form class="max-w-sm mb-10" id="registerForm">
+            <div class="grid md:grid-cols-2 md:gap-6 mb-0 sm:mb-8">
+              <div class="relative z-0 w-full mb-8 sm:mb-0">
+                <label for="fname" class="block mb-2 text-sm text-white"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  id="fname"
+                  class="bg-blue-800 border border-gray-50 text-white text-sm placeholder-slate-300 rounded-md block w-full p-2.5 focus:ring-slate-300"
+                  placeholder="John"
+                  required
+                />
+              </div>
+              <div class="relative z-0 w-full mb-8 sm:mb-0">
+                <label for="lname" class="block mb-2 text-sm text-white"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  id="lname"
+                  class="bg-blue-800 border border-gray-50 text-white text-sm placeholder-slate-300 rounded-md block w-full p-2.5 focus:ring-slate-300"
+                  placeholder="Doe"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-8">
+              <label for="email" class="block mb-2 text-sm text-white"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="bg-blue-800 border border-gray-50 text-white text-sm placeholder-slate-300 rounded-md block w-full p-2.5 focus:ring-slate-300"
+                placeholder="john.doe@example.com"
+                required
+              />
+            </div>
+            <div class="mb-8">
+              <label for="password" class="block mb-2 text-sm text-white"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="password"
+                class="bg-blue-800 border border-gray-50 text-white text-sm placeholder-slate-300 rounded-md block w-full p-2.5 focus:ring-slate-300"
+                placeholder="********"
+                required
+              />
+            </div>
+            <div class="mb-8">
+              <label for="cpassword" class="block mb-2 text-sm text-white"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                id="cpassword"
+                class="bg-blue-800 border border-gray-50 text-white text-sm placeholder-slate-300 rounded-md block w-full p-2.5 focus:ring-slate-300"
+                placeholder="********"
+                required
+              />
+            </div>
+            <div class="flex justify-end">
+              <button
+                type="submit"
+                class="text-black bg-slate-50 hover:bg-slate-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm w-full sm:w-auto px-5 py-2.5 text-center float-right"
+              >
+                Sign Up
+              </button>
+            </div>
+          </form>
+          <div class="mb-8">
+            <p class="font-light text-sm text-center">
+              Already have an account?
+              <a href="index.html" class="font-semibold hover:text-slate-200"
+                >Sign In</a
+              >
+            </p>
+          </div>
+          <div class="flex justify-center lg:hidden gap-6">
+            <img class="w-16" src="assets/cpe.png" alt="CPE Logo" />
+            <img class="w-16" src="assets/snc.png" alt="SNC Logo" />
+          </div>
+        </div>
+        <div
+          class="sm:col-span-7 lg:col-span-9 hidden sm:flex sm:basis-full w-full h-screen bg-center bg-cover relative justify-center items-center"
+          style="background-image: url(assets/background-1.jpg);"
+          id="bgVeggie"
+        >
+          <div class="bg-blue-800 absolute h-full w-full opacity-50 z-0"></div>
+          <div class="absolute hidden lg:flex right-14 top-14 gap-6">
+            <img class="w-16" src="assets/cpe.png" alt="CPE Logo" />
+            <img class="w-16" src="assets/snc.png" alt="SNC Logo" />
+          </div>
+          <div
+            class="bg-white w-96 h-96 z-10 rounded-full flex justify-center items-center"
+          >
+            <img
+              class="absolute"
+              id="veggiePic"
+              style="transform: translateY(-50%);"
+              src="assets/mustasa.png"
+              alt="Lettuce"
+            />
+            <div
+              class="absolute flex flex-col items-center"
+              style="transform: translateY(50%);"
+            >
+              <img
+                class="w-12"
+                src="assets/hydroponics-logo.png"
+                alt="Hydrophonics"
+              />
+              <h2 class="font-bold text-lg my-1" id="veggieTitle">---</h2>
+              <p class="text-center w-64 text-sm" id="veggieDesc">---</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/main.js"></script>
+
+    <script>
+      $("#registerForm").on("submit", function (evt) {
+        evt.preventDefault();
+
+        if (Password != ConfirmPassword) {
+          Swal.fire({
+            icon: "error",
+            title: "Password mismatch!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          return;
+        }
+
+        Swal.fire({
+          icon: "success",
+          title: "User successfully created!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        setTimeout(function () {
+          window.location.href = "dashboard.html";
+        }, 2000);
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hydrophonics | Dashboard</title>
+
+    <link rel="shortcut icon" href="assets/favicon.jpg" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/c7dad06b11.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="poppins-regular">
+    <div class="grid grid-cols-12">
+      <header
+        id="sideBar"
+        class="w-full hidden md:block col-span-12 md:col-span-3 py-10 px-10 min min-h-screen h-full bg-blue-800 absolute z-50 md:relative"
+      >
+        <button
+          id="sideClose"
+          class="md:hidden absolute end-5 top-5 bg-white text-blue-600 px-3 py-2 rounded hover:opacity-60"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="flex justify-center mb-5">
+          <img class="w-52" src="./assets/logo.png" alt="Hydrophonics Logo" />
+        </div>
+        <h2 class="ms-5 text-white mb-3 font-semibold">Menu</h2>
+        <hr class="mb-10 opacity-50" />
+        <ul class="flex-column space-y space-y-4 text-sm text-lg font-light">
+          <li>
+            <a
+              href="#"
+              class="inline-flex text-blue-800 items-center p-5 rounded-lg bg-gray-50 transition-all w-full gap-3"
+            >
+              <i class="fa-solid fa-bottle-water"></i>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a
+              href="camera.html"
+              class="inline-flex text-blue-800 items-center p-5 rounded-lg transition-all text-white bg-blue-800 hover:bg-blue-900 w-full gap-3"
+            >
+              <i class="fa-solid fa-camera"></i>
+              Camera
+            </a>
+          </li>
+          <li>
+            <a
+              href="crops.html"
+              class="inline-flex text-blue-800 items-center p-5 rounded-lg transition-all text-white bg-blue-800 hover:bg-blue-900 w-full gap-3"
+            >
+              <i class="fa-solid fa-seedling"></i>
+              Crops
+            </a>
+          </li>
+        </ul>
+        <div class="text-center mt-10 text-white opacity-50">
+          <i class="fa-solid fa-droplet text-2xl"></i>
+        </div>
+      </header>
+
+      <main class="col-span-12 md:col-span-9 bg-gray-50">
+        <nav class="p-6 bg-white border">
+          <div class="grid grid-cols-12 items-center">
+            <div class="col-span-6 flex inline-flex gap-3 items-center">
+              <button
+                id="sideAppear"
+                class="block md:hidden bg-blue-800 px-3 py-2 text-white rounded hover:bg-blue-900 transition-all"
+              >
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <h3 class="text-xl font-bold">Dashboard</h3>
+            </div>
+            <div
+              class="col-span-6 flex items-center flex-inline justify-end gap-3 relative cursor-pointer"
+              id="logoutBtn"
+            >
+              <img
+                class="w-12"
+                src="./assets/chicken.png"
+                alt="Profile Picture"
+              />
+              <div class="font-bold" id="emailDisplay">
+                -----
+              </div>
+              <div
+                id="logoutContainer"
+                class="bg-white border border-gray-300 px-3 py-2 shadow-lg absolute rounded w-48 hidden"
+                style="bottom: -70px;"
+              >
+                <ul
+                  class="flex-column space-y space-y-4 text-sm text-lg font-light"
+                >
+                  <li>
+                    <button
+                      id="logout"
+                      class="inline-flex text-blue-800 items-center p-3 rounded-lg transition-all text-white bg-blue-800 hover:bg-blue-900 w-full gap-3"
+                    >
+                      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="bg-gray-100 p-6 min-h-screen">
+          <div
+            class="bg-blue-800 p-6 mb-6 rounded shadow-md flex flex-inline text-white gap-3 items-center"
+          >
+            <i class="fa-solid fa-circle-info text-white text-2xl"></i>
+            <p>Don't forget to water your plants!</p>
+          </div>
+
+          <div class="grid grid-cols-12 mb-6 gap-3">
+            <div
+              class="col-span-12 sm:col-span-6 lg:col-span-3 flex shadow-md flex-inline justify-between items-center bg-blue-800 text-white p-5 rounded"
+            >
+              <div>
+                <p class="uppercase font-light text-xs">pH level</p>
+                <p class="text-2xl"><span id="phNumber">0.00</span> %</p>
+              </div>
+              <i class="fa-solid fa-leaf opacity-50 text-4xl"></i>
+            </div>
+            <div
+              class="col-span-12 sm:col-span-6 lg:col-span-3 flex shadow-md flex-inline justify-between items-center bg-blue-800 text-white p-5 rounded"
+            >
+              <div>
+                <p class="uppercase font-light text-xs">water level</p>
+                <p class="text-2xl"><span id="waterNumber">0.00</span>%</p>
+              </div>
+              <i class="fa-solid fa-water opacity-50 text-4xl"></i>
+            </div>
+            <div
+              class="col-span-12 sm:col-span-6 lg:col-span-3 flex shadow-md flex-inline justify-between items-center bg-blue-800 text-white p-5 rounded"
+            >
+              <div>
+                <p class="uppercase font-light text-xs">Temperature</p>
+                <p class="text-2xl">
+                  <span id="temp1Number">0.00</span> C /
+                  <span id="temp2Number">0.00</span> F
+                </p>
+              </div>
+              <i
+                class="fa-solid fa-temperature-three-quarters opacity-50 text-4xl"
+              ></i>
+            </div>
+            <div
+              class="col-span-12 sm:col-span-6 lg:col-span-3 flex shadow-md flex-inline justify-between items-center bg-blue-800 text-white p-5 rounded"
+            >
+              <div>
+                <p class="uppercase font-light text-xs">Humidity</p>
+                <p class="text-2xl"><span id="humidNumber">0.00</span>%</p>
+              </div>
+              <i class="fa-solid fa-droplet opacity-50 text-4xl"></i>
+            </div>
+          </div>
+
+          <div class="border-b border-gray-200 dark:border-gray-700 mb-8">
+            <ul
+              class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-300"
+            >
+              <li class="me-2">
+                <a
+                  href="#"
+                  class="inline-flex items-center justify-center p-4 border-b-2 border-blue-600 text-blue-600 active rounded-t-lg group"
+                  id="layer1Btn"
+                >
+                  <i class="fa-solid fa-layer-group md:me-5"></i>
+                  <span class="hidden md:block">
+                    Layer 1
+                  </span>
+                </a>
+              </li>
+              <li class="me-2">
+                <a
+                  href="#"
+                  class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 group"
+                  id="layer2Btn"
+                >
+                  <i class="fa-solid fa-layer-group md:me-5"></i>
+                  <span class="hidden md:block">
+                    Layer 2
+                  </span>
+                </a>
+              </li>
+              <li class="me-2">
+                <a
+                  href="#"
+                  class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"
+                  id="waterBtn"
+                >
+                  <i class="fa-solid fa-bottle-water md:me-5"></i>
+                  <span class="hidden md:block">
+                    Water/Nutrients
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-6 text-medium text-gray-500 w-full">
+            <!-- Layer 1 -->
+            <div id="tab1Content">
+              <h2 class="font-bold text-black text-2xl mb-6">Layer 1</h2>
+              <div class="grid grid-cols-12 gap-3">
+                <div
+                  class="col-span-12 sm:col-span-6 lg:col-span-3 bg-rose-500 text-white p-6 transition-all text-center rounded shadow-lg cursor-pointer"
+                  id="fan1"
+                >
+                  <i class="fa-solid fa-fan text-8xl mb-3" id="fanLogo1"></i>
+                  <p class="uppercase">FAN</p>
+                </div>
+                <div
+                  class="col-span-12 sm:col-span-6 lg:col-span-3 bg-rose-500 text-white p-6 transition-all text-center rounded shadow-lg cursor-pointer"
+                  id="led1"
+                >
+                  <i
+                    class="fa-regular fa-lightbulb text-8xl mb-3 transition-all"
+                    id="ledLogo1"
+                  ></i>
+                  <p class="uppercase">LED</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layer 2 -->
+            <div class="hidden" id="tab2Content">
+              <h2 class="font-bold text-black text-2xl mb-6">Layer 2</h2>
+              <div class="grid grid-cols-12 gap-3">
+                <div
+                  class="col-span-12 sm:col-span-6 lg:col-span-3 bg-rose-500 text-white p-6 transition-all text-center rounded shadow-lg cursor-pointer"
+                  id="fan2"
+                >
+                  <i class="fa-solid fa-fan text-8xl mb-3" id="fanLogo2"></i>
+                  <p class="uppercase">FAN</p>
+                </div>
+                <div
+                  class="col-span-12 sm:col-span-6 lg:col-span-3 bg-rose-500 text-white p-6 transition-all text-center rounded shadow-lg cursor-pointer"
+                  id="led2"
+                >
+                  <i
+                    class="fa-regular fa-lightbulb text-8xl mb-3 transition-all"
+                    id="ledLogo2"
+                  ></i>
+                  <p class="uppercase">LED</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Water Nutrients -->
+            <div class="hidden" id="tab3Content">
+              <h2 class="font-bold text-black text-2xl mb-6">
+                Water and Nutrients
+              </h2>
+              <div
+                class="bg-blue-800 p-6 mb-6 rounded shadow-md flex flex-inline text-white gap-3 items-center"
+              >
+                <i class="fa-solid fa-circle-info text-white text-2xl"></i>
+                <p>Nutrients cannot be activited if the water is off!</p>
+              </div>
+              <div class="grid grid-cols-12 gap-3">
+                <div
+                  class="col-span-12 sm:col-span-6 lg:col-span-3 bg-rose-500 text-white p-6 transition-all text-center rounded shadow-lg cursor-pointer"
+                  id="water1Btn"
+                >
+                  <i class="fa-solid fa-water text-8xl mb-3"></i>
+                  <p class="uppercase">Water</p>
+                </div>
+                <div
+                  class="col-span-12 sm:col-span-6 lg:col-span-3 bg-rose-500 text-white p-6 transition-all text-center rounded shadow-lg cursor-pointer"
+                  id="nutrient1Btn"
+                >
+                  <i class="fa-solid fa-bottle-water text-8xl mb-3"></i>
+                  <p class="uppercase">Hydrophonics Nutrients Solution</p>
+                </div>
+                <div
+                  class="col-span-12 sm:col-span-6 lg:col-span-3 bg-rose-500 text-white p-6 transition-all text-center rounded shadow-lg cursor-pointer"
+                  id="nutrient2Btn"
+                >
+                  <i class="fa-solid fa-bottle-droplet text-8xl mb-3"></i>
+                  <p class="uppercase">Leafy Nutsol</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="bg-white p-5 opacity-50 text-center">
+          <p class="text-sm">Copyright © Hydrophonics SNC 2024</p>
+        </footer>
+      </main>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#fan1").on("click", function () {
+          const $this = $(this);
+
+          if ($this.hasClass("bg-rose-500")) {
+            $this.removeClass("bg-rose-500").addClass("bg-green-500");
+
+            let time = 0;
+            const animateFan1 = setInterval(function () {
+              $("#fanLogo1").css("transform", `rotate(${time}deg)`);
+              time += 10;
+            }, 10);
+
+            $this.data("animateFan1", animateFan1);
+          } else {
+            $this.removeClass("bg-green-500").addClass("bg-rose-500");
+            clearInterval($this.data("animateFan1"));
+          }
+        });
+
+        $("#led1").on("click", function () {
+          if ($(this).hasClass("bg-rose-500")) {
+            $(this).removeClass("bg-rose-500").addClass("bg-green-500");
+            $("#ledLogo1").removeClass("fa-regular").addClass("fa-solid");
+          } else {
+            $(this).removeClass("bg-green-500").addClass("bg-rose-500");
+            $("#ledLogo1").removeClass("fa-solid").addClass("fa-regular");
+          }
+        });
+
+        $("#fan2").on("click", function () {
+          const $this = $(this);
+
+          if ($this.hasClass("bg-rose-500")) {
+            $this.removeClass("bg-rose-500").addClass("bg-green-500");
+
+            let time = 0;
+            const animateFan2 = setInterval(function () {
+              $("#fanLogo2").css("transform", `rotate(${time}deg)`);
+              time += 10;
+            }, 10);
+
+            $this.data("animateFan2", animateFan2);
+          } else {
+            $this.removeClass("bg-green-500").addClass("bg-rose-500");
+            clearInterval($this.data("animateFan2"));
+          }
+        });
+
+        $("#led2").on("click", function () {
+          if ($(this).hasClass("bg-rose-500")) {
+            $(this).removeClass("bg-rose-500").addClass("bg-green-500");
+            $("#ledLogo2").removeClass("fa-regular").addClass("fa-solid");
+          } else {
+            $(this).removeClass("bg-green-500").addClass("bg-rose-500");
+            $("#ledLogo2").removeClass("fa-solid").addClass("fa-regular");
+          }
+        });
+
+        $("#nutrient1Btn").on("click", function () {
+          if ($(this).hasClass("bg-rose-500")) {
+            $(this).removeClass("bg-rose-500").addClass("bg-green-500");
+          } else {
+            $(this).removeClass("bg-green-500").addClass("bg-rose-500");
+          }
+        });
+
+        $("#nutrient2Btn").on("click", function () {
+          if ($(this).hasClass("bg-rose-500")) {
+            $(this).removeClass("bg-rose-500").addClass("bg-green-500");
+          } else {
+            $(this).removeClass("bg-green-500").addClass("bg-rose-500");
+          }
+        });
+
+        $("#water1Btn").on("click", function () {
+          if ($(this).hasClass("bg-rose-500")) {
+            $(this).removeClass("bg-rose-500").addClass("bg-green-500");
+          } else {
+            $(this).removeClass("bg-green-500").addClass("bg-rose-500");
+          }
+        });
+
+        $("#layer1Btn").on("click", function (evt) {
+          evt.preventDefault();
+
+          $(this)
+            .addClass("border-blue-600 text-blue-600 border-blue-600")
+            .removeClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+          $("#layer2Btn")
+            .removeClass(
+              "border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300"
+            )
+            .addClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+          $("#waterBtn")
+            .removeClass(
+              "border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300"
+            )
+            .addClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+
+          $("#tab1Content").removeClass("hidden");
+          $("#tab2Content").addClass("hidden");
+          $("#tab3Content").addClass("hidden");
+        });
+
+        $("#layer2Btn").on("click", function (evt) {
+          evt.preventDefault();
+
+          $(this)
+            .addClass("border-blue-600 text-blue-600 border-blue-600")
+            .removeClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+          $("#layer1Btn")
+            .removeClass(
+              "border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300"
+            )
+            .addClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+          $("#waterBtn")
+            .removeClass(
+              "border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300"
+            )
+            .addClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+
+          $("#tab2Content").removeClass("hidden");
+          $("#tab1Content").addClass("hidden");
+          $("#tab3Content").addClass("hidden");
+        });
+
+        $("#waterBtn").on("click", function (evt) {
+          evt.preventDefault();
+
+          $(this)
+            .addClass("border-blue-600 text-blue-600 border-blue-600")
+            .removeClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+          $("#layer1Btn")
+            .removeClass(
+              "border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300"
+            )
+            .addClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+          $("#layer2Btn")
+            .removeClass(
+              "border-transparent text-blue-600 hover:text-gray-600 hover:border-gray-300"
+            )
+            .addClass(
+              "border-transparent hover:text-gray-600 hover:border-gray-300"
+            );
+
+          $("#tab3Content").removeClass("hidden");
+          $("#tab1Content").addClass("hidden");
+          $("#tab2Content").addClass("hidden");
+        });
+
+        $("#sideAppear").on("click", function () {
+          $("#sideBar").removeClass("hidden");
+        });
+
+        $("#sideClose").on("click", function () {
+          $("#sideBar").addClass("hidden");
+        });
+
+        $("#logoutBtn").on("click", function () {
+          if ($("#logoutContainer").hasClass("hidden")) {
+            $("#logoutContainer").removeClass("hidden");
+          } else {
+            $("#logoutContainer").addClass("hidden");
+          }
+        });
+
+        $("#logout").on("click", function () {
+          window.location.href = "index.html";
+        });
+
+        $("#emailDisplay").text("john.doe@example.com");
+      });
+    </script>
+  </body>
+</html>
